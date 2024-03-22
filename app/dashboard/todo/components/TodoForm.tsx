@@ -24,7 +24,7 @@ import {
 	SelectTrigger,
 	SelectValue,
 } from "@/components/ui/select";
-import { createTodo, updateTodoById } from "../actions";
+// import { createTodo, updateTodoById } from "../actions";
 import { Checkbox } from "@/components/ui/checkbox";
 
 const FormSchema = z.object({
@@ -43,107 +43,119 @@ export default function TodoForm({ isEdit }: { isEdit: boolean }) {
 		},
 	});
 
-	const handleCreateMember = (data: z.infer<typeof FormSchema>) => {
-		createTodo();
+	// const handleCreateMember = (data: z.infer<typeof FormSchema>) => {
+	// 	createTodo();
 
-		document.getElementById("create-trigger")?.click();
+	// 	document.getElementById("create-trigger")?.click();
 
-		toast({
-			title: "You submitted the following values:",
-			description: (
-				<pre className="mt-2 w-[340px] rounded-md bg-slate-950 p-4">
-					<code className="text-white">
-						{JSON.stringify(data, null, 2)}
-					</code>
-				</pre>
-			),
-		});
-	};
+	// 	toast({
+	// 		title: "You submitted the following values:",
+	// 		description: (
+	// 			<pre className="mt-2 w-[340px] rounded-md bg-slate-950 p-4">
+	// 				<code className="text-white">
+	// 					{JSON.stringify(data, null, 2)}
+	// 				</code>
+	// 			</pre>
+	// 		),
+	// 	});
+	// };
 
-	const handleUpdateMember = (data: z.infer<typeof FormSchema>) => {
-		updateTodoById("hello");
-		document.getElementById("update-trigger")?.click();
 
-		toast({
-			title: "You submitted the following values:",
-			description: (
-				<pre className="mt-2 w-[340px] rounded-md bg-slate-950 p-4">
-					<code className="text-white">
-						{JSON.stringify(data, null, 2)}
-					</code>
-				</pre>
-			),
-		});
-	};
 
-	function onSubmit(data: z.infer<typeof FormSchema>) {
-		if (isEdit) {
-			handleUpdateMember(data);
-		} else {
-			handleCreateMember(data);
-		}
-	}
 
-	return (
-		<Form {...form}>
-			<form
-				onSubmit={form.handleSubmit(onSubmit)}
-				className="w-full space-y-6"
-			>
-				<FormField
-					control={form.control}
-					name="title"
-					render={({ field }) => (
-						<FormItem>
-							<FormLabel>Credential 1</FormLabel>
-							<FormControl>
-								<Input
-									placeholder="Secret 1"
-									type="text"
-									{...field}
-									onChange={field.onChange}
-								/>
-							</FormControl>
-							<FormMessage />
-						</FormItem>
-					)}
-				/>
-				<FormField
-					control={form.control}
-					name="title"
-					render={({ field }) => (
-						<FormItem>
-							<FormLabel>Credential 2</FormLabel>
-							<FormControl>
-								<Input
-									placeholder="Secret 2"
-									type="text"
-									{...field}
-									onChange={field.onChange}
-								/>
-							</FormControl>
-							<FormMessage />
-						</FormItem>
-					)}
-				/>
-				<FormField
-					control={form.control}
-					name="title"
-					render={({ field }) => (
-						<FormItem>
-							<FormLabel>Credential 3</FormLabel>
-							<FormControl>
-								<Input
-									placeholder="Secret 3"
-									type="text"
-									{...field}
-									onChange={field.onChange}
-								/>
-							</FormControl>
-							<FormMessage />
-						</FormItem>
-					)}
-				/>
+
+
+
+	// const handleUpdateMember = (data: z.infer<typeof FormSchema>) => {
+	// 	updateTodoById("hello");
+	// 	document.getElementById("update-trigger")?.click();
+
+	// 	toast({
+	// 		title: "You submitted the following values:",
+	// 		description: (
+	// 			<pre className="mt-2 w-[340px] rounded-md bg-slate-950 p-4">
+	// 				<code className="text-white">
+	// 					{JSON.stringify(data, null, 2)}
+	// 				</code>
+	// 			</pre>
+	// 		),
+	// 	});
+	// };
+
+	// function onSubmit(data: z.infer<typeof FormSchema>) {
+	// 	if (isEdit) {
+	// 		handleUpdateMember(data);
+	// 	} else {
+	// 		handleCreateMember(data);
+	// 	}
+	// }
+
+
+
+
+	// return (
+	// 	<Form {...form}>
+	// 		<form
+	// 			onSubmit={form.handleSubmit(onSubmit)}
+	// 			className="w-full space-y-6"
+	// 		>
+	// 			<FormField
+	// 				control={form.control}
+	// 				name="title"
+	// 				render={({ field }) => (
+	// 					<FormItem>
+	// 						<FormLabel>Credential 1</FormLabel>
+	// 						<FormControl>
+	// 							<Input
+	// 								placeholder="Secret 1"
+	// 								type="text"
+	// 								{...field}
+	// 								onChange={field.onChange}
+	// 							/>
+	// 						</FormControl>
+	// 						<FormMessage />
+	// 					</FormItem>
+	// 				)}
+	// 			/>
+	// 			<FormField
+	// 				control={form.control}
+	// 				name="title"
+	// 				render={({ field }) => (
+	// 					<FormItem>
+	// 						<FormLabel>Credential 2</FormLabel>
+	// 						<FormControl>
+	// 							<Input
+	// 								placeholder="Secret 2"
+	// 								type="text"
+	// 								{...field}
+	// 								onChange={field.onChange}
+	// 							/>
+	// 						</FormControl>
+	// 						<FormMessage />
+	// 					</FormItem>
+	// 				)}
+	// 			/>
+	// 			<FormField
+	// 				control={form.control}
+	// 				name="title"
+	// 				render={({ field }) => (
+	// 					<FormItem>
+	// 						<FormLabel>Credential 3</FormLabel>
+	// 						<FormControl>
+	// 							<Input
+	// 								placeholder="Secret 3"
+	// 								type="text"
+	// 								{...field}
+	// 								onChange={field.onChange}
+	// 							/>
+	// 						</FormControl>
+	// 						<FormMessage />
+	// 					</FormItem>
+	// 				)}
+	// 			/>
+
+
+
 				{/* <FormField
 					control={form.control}
 					name="completed"
@@ -161,10 +173,13 @@ export default function TodoForm({ isEdit }: { isEdit: boolean }) {
 						</FormItem>
 					)}
 				/> */}
-				<Button type="submit" className="w-full" variant="outline">
-					Submit
-				</Button>
-			</form>
-		</Form>
-	);
+
+
+
+	// 			<Button type="submit" className="w-full" variant="outline">
+	// 				Submit
+	// 			</Button>
+	// 		</form>
+	// 	</Form>
+	// );
 }
